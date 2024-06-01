@@ -38,15 +38,23 @@ export async function POST({ request }) {
                 title = "Most Requested per population";
                 query_string = "select * from most_request_population offset $1 limit $2;";
                 break;
-            case "not_requested":
+            case "never_requested":
                 title = "Books Not Requested";
+                query_string = "select * from never_requested offset $1 limit $2;";
+                break;
+            case "not_returned":
+                title = "Books Not Returned";
                 query_string = "select * from not_returned offset $1 limit $2;";
+                break;
+            case "an_new_old":
+                title = "Relationship between older and newer books";
+                query_string = "select * from an_new_old offset $1 limit $2;";
                 break;
             default: query_string = "";
         }
 
         if(query_string == "") return json({});
-        console.log(await query(query_string,[page*page_size, page_size]))
+        //console.log(await query(query_string,[page*page_size, page_size]))
 
         //const query_res = await query("select * from dim_student limit 2;", []);
         return json(

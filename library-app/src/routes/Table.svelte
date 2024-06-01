@@ -9,10 +9,8 @@ $: label = data?.label;
 $: titles = data?.titles;
 $: rows = data?.rows;
 
-//$: console.log(rows)
-
 async function update(){
-    const response = await fetch('/most_requested', {
+    const response = await fetch('/api', {
         method: 'POST',
         body: JSON.stringify({table: table, page: page}),
         headers: {

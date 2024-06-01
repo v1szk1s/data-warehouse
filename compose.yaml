@@ -11,6 +11,21 @@ services:
        POSTGRES_USER: hulu
        POSTGRES_DB: library_dwh
 
+  frontend:
+    build:
+      context: ./library-app
+      dockerfile: Dockerfile
+    ports:
+      - "3333:3333"
+    depends_on:
+      - db
+    environment:
+      PG_USER: hulu
+      PG_PASSWORD: passwd
+      PG_HOST: db
+      PG_PORT: 5432
+      PG_DATABASE: library_dwh
+
   pg-admin:
     image: dpage/pgadmin4:8.4
     ports:

@@ -2,10 +2,10 @@
 
 import { Bar } from 'svelte-chartjs';
 import { Line } from 'svelte-chartjs';
+import { Radar } from 'svelte-chartjs';
 import Table from './Table.svelte';
 
 export let data;
-
 
 import {
     Chart,
@@ -17,6 +17,7 @@ import {
     LinearScale,
     LineElement,
     PointElement,
+    RadialLinearScale,
 } from 'chart.js';
 
 Chart.register(
@@ -29,6 +30,7 @@ Chart.register(
     LineElement,
     LinearScale,
     PointElement,
+    RadialLinearScale,
 );
 
 </script>
@@ -77,7 +79,32 @@ Chart.register(
         
         <Bar data={ data.readers_by_district } options={{ responsive: true }} />
     </div>
-    
+
+    <div class="container w-3/4 text-center mx-auto">
+        <p class="font-sans text-2xl py-3">
+            {data.annual_cost.datasets[0].label}
+        </p>
+        
+        <Bar data={ data.annual_cost } options={{ responsive: true }} />
+    </div>
+
+    <div class="grid grid-cols-2 gap-5">
+        <div class="container w-1/2 text-center mx-auto">
+            <p class="font-sans text-2xl py-3">
+                {data.busy_day.datasets[0].label}
+            </p>
+            
+            <Radar data={ data.busy_day } options={{ responsive: true }} />
+        </div>
+        
+        <div class="container w-1/2 text-center mx-auto">
+            <p class="font-sans text-2xl py-3">
+                {data.busy_month.datasets[0].label}
+            </p>
+            
+            <Radar data={ data.busy_month } options={{ responsive: true }} />
+        </div>
+    </div>
 
 </div>
 

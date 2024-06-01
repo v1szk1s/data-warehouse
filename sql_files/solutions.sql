@@ -1,5 +1,6 @@
 -------------------------------------------------------------------
 --- gettin the average request time
+create or replace view avg_time as
 WITH next_loan AS (
     SELECT 
         request_id,
@@ -22,9 +23,10 @@ WHERE
 -------------------------------------------------------------------
 --- book usage over time yearly
 
+create or replace view usage_year as
 SELECT
-    dd.year_actual,
-    COUNT(fr.request_id) AS total_loans
+    dd.year_actual as first,
+    COUNT(fr.request_id) AS second
 FROM
     fact_request fr
 JOIN
@@ -39,6 +41,7 @@ ORDER BY
 
 -------------------------------------------------------------------
 --- book usage over time quarterly
+create or replace view usage_quarter as
 SELECT
     dd.year_actual,
     dd.quarter_actual,
@@ -55,6 +58,7 @@ ORDER BY
     dd.quarter_actual;
 
 --- book usage over time montly
+create or replace view usage_month as
 SELECT
     dd.year_actual,
     dd.month_actual,
@@ -71,37 +75,34 @@ ORDER BY
     dd.month_actual;
 
 -------------------VIEW FOR THAT ----------------------
-create or replace view book_usage as
-SELECT
-    dd.year_actual,
-	dd.quarter_actual,
-	dd.month_actual,
-	dd.week_of_year,
-    fr.request_id AS request_id
-FROM
-    fact_request fr
-JOIN
-    dim_date dd ON fr.loan_date = dd.date_actual
-
-select year_actual, count(*) from book_usage
-	group by quarter_actual;
-
-select year_actual, quarter_actual, count(*) from book_usage
-group by year_actual, quarter_actual;
-
-
-select year_actual, week_of_year, count(*) from book_usage
-	group by year_actual, week_of_year
-	order by
-	year_actual, week_of_year;
-
-
-
-
+-- create or replace view book_usage as
+-- SELECT
+--     dd.year_actual,
+-- 	dd.quarter_actual,
+-- 	dd.month_actual,
+-- 	dd.week_of_year,
+--     fr.request_id AS request_id
+-- FROM
+--     fact_request fr
+-- JOIN
+--     dim_date dd ON fr.loan_date = dd.date_actual
+-- 
+-- select year_actual, count(*) from book_usage
+-- 	group by quarter_actual;
+-- 
+-- select year_actual, quarter_actual, count(*) from book_usage
+-- group by year_actual, quarter_actual;
+-- 
+-- 
+-- select year_actual, week_of_year, count(*) from book_usage
+-- 	group by year_actual, week_of_year
+-- 	order by
+-- 	year_actual, week_of_year;
 
 
 -------------------------------------------------------------------
 ---books that have never been requested, and their associated costs.
+create or replace view never_requested as
 select dim_book.title as title, dim_book.price as price
 	from dim_book
 	where book_id not in (select book_id from fact_request)
@@ -110,7 +111,8 @@ select dim_book.title as title, dim_book.price as price
     fetch next 50 rows only;
 
 -------------------------------------------------------------------
----Identify which districts have the most readers
+---Identify which city have the most readers
+create or replace view most_reader_city as
 select dim_population.city as first, count(request_id) as second from fact_request
 inner join
 dim_population on dim_population.population_id = fact_request.population_id
@@ -122,7 +124,7 @@ order by second desc;
 -------------------------------------------------------------------
 --- the most requested books per:
 -- student
-create view most_request_student as
+create or replace view most_request_student as
 WITH student_book_requests AS (
     SELECT
         fr.student_id,
@@ -160,7 +162,7 @@ ORDER BY
 
 
 -- per course
-create view most_request_course as
+create or replace view most_request_course as
 WITH course_book_requests AS (
     SELECT
         ds.course,
@@ -196,9 +198,11 @@ WHERE
 ORDER BY
     rb.course;
 
+create view request_course as
+SELECT ds.course, COUNT(fr.request_id) AS count FROM fact_request fr JOIN dim_student ds ON fr.student_id = ds.student_id GROUP BY ds.course ORDER BY count DESC LIMIT 10; 
 
 -- by gender
-create view most_request_gender as
+create or replace view most_request_gender as
 select dim_student.gender as gender, dim_book.title from fact_request
 inner join
 dim_student on dim_student.student_id = fact_request.student_id
@@ -210,7 +214,7 @@ group by dim_student.gender, title
 
 
 -- by districts with higher populations
-create view most_request_population as
+create or replace view most_request_population as
 select dim_population.city as first, count(request_id) as second
 	from fact_request
 	join
@@ -222,7 +226,7 @@ select dim_population.city as first, count(request_id) as second
 
 -------------------------------------------------------------------
 --- Analyze annual acquisition costs 
-create view an_annual_cost as
+create or replace view an_annual_cost as
 SELECT
     EXTRACT(YEAR FROM purchase_date) AS purchase_year,
     SUM(price) AS total_acquisition_cost
@@ -236,7 +240,7 @@ ORDER BY
 
 -------------------------------------------------------------------
 --- Analyze the relationship between reading newer and older books
-create view an_new_old as
+create or replace view an_new_old as
 SELECT
     EXTRACT(YEAR FROM fr.loan_date) AS loan_year,
     CASE
@@ -260,7 +264,7 @@ ORDER BY
 
 -------------------------------------------------------------------
 --- books not returned, among other aspects
-create view not_returned as
+create or replace view not_returned as
 with next_loan as ( SELECT 
         request_id,
         student_id,
@@ -278,6 +282,7 @@ with next_loan as ( SELECT
 
 -------------------------------------------------------------------
 --- Determine the busiest day of the week for requisitions on average
+create or replace view busy_day as
 SELECT
     dd.day_name,
     COUNT(fr.request_id) AS total_requests
@@ -292,6 +297,7 @@ ORDER BY
 
 -------------------------------------------------------------------
 --- Determine the months with the highest usage.
+create or replace view busy_month as
 SELECT
     dd.month_name,
     COUNT(fr.request_id) AS total_requests

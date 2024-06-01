@@ -6,7 +6,7 @@ import Table from '../Table.svelte';
 
 
 <div class="grid grid-cols-2">
-    <Table table="books_not_requested" />
+    <Table table="never_requested" />
     
     <Table table="most_request_student" />
 
@@ -17,6 +17,8 @@ import Table from '../Table.svelte';
     <Table table="most_request_population" />
 
     <Table table="not_returned" />
+
+    <Table table="an_new_old" />
 
 </div>
 
