@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "30000:5432"
+    volumes:
+      - ./configs/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./data_transformed/:/data
+    environment:
+       POSTGRES_PASSWORD: passwd
+       POSTGRES_USER: hulu
+       POSTGRES_DB: library_dwh
+
+  pg-admin:
+    image: dpage/pgadmin4:8.4
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./configs/servers.json:/pgadmin4/servers.json:ro
+      - ./configs/pgpass:/pgpass:ro
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: a@a.com
+      PGADMIN_DEFAULT_PASSWORD: passwd
+      PGADMIN_LISTEN_PORT: 8888
+
+
+
+

@@ -1,0 +1,354 @@
+population_id,city,region_type,population
+0,Portugal,NUTS 2013,10407707
+1,Continente,NUTS I,9917206
+2,Norte,NUTS II,3605706
+3,Alto Minho,NUTS III,232163
+4,Arcos de Valdevez,Município,20754
+5,Caminha,Município,15917
+6,Melgaço,Município,7755
+7,Monção,Município,17898
+8,Paredes de Coura,Município,8703
+9,Ponte da Barca,Município,11088
+10,Ponte de Lima,Município,41240
+11,Valença,Município,13749
+12,Viana do Castelo,Município,86091
+13,Vila Nova de Cerveira,Município,8970
+14,Cávado,NUTS III,418988
+15,Amares,Município,18764
+16,Barcelos,Município,116947
+17,Braga,Município,194588
+18,Esposende,Município,35519
+19,Terras de Bouro,Município,6387
+20,Vila Verde,Município,46785
+21,Ave,NUTS III,419602
+22,Cabeceiras de Basto,Município,15585
+23,Fafe,Município,48520
+24,Guimarães,Município,156907
+25,Mondim de Basto,Município,6446
+26,Póvoa de Lanhoso,Município,22003
+27,Vieira do Minho,Município,12032
+28,Vila Nova de Famalicão,Município,134076
+29,Vizela,Município,24035
+30,Área Metropolitana do Porto,NUTS III,1749558
+31,Arouca,Município,21141
+32,Espinho,Município,31308
+33,Gondomar,Município,165307
+34,Maia,Município,136517
+35,Matosinhos,Município,173943
+36,Oliveira de Azeméis,Município,66539
+37,Paredes,Município,84842
+38,Porto,Município,234438
+39,Póvoa de Varzim,Município,64817
+40,Santa Maria da Feira,Município,137296
+41,Santo Tirso,Município,67825
+42,São João da Madeira,Município,22520
+43,Trofa,Município,38831
+44,Vale de Cambra,Município,21317
+45,Valongo,Município,95834
+46,Vila do Conde,Município,81659
+47,Vila Nova de Gaia,Município,305429
+48,Alto Tâmega,NUTS III,84186
+49,Boticas,Município,4974
+50,Chaves,Município,37583
+51,Montalegre,Município,9247
+52,Ribeira de Pena,Município,5875
+53,Valpaços,Município,14678
+54,Vila Pouca de Aguiar,Município,11830
+55,Tâmega e Sousa,NUTS III,409510
+56,Amarante,Município,52205
+57,Baião,Município,17553
+58,Castelo de Paiva,Município,15525
+59,Celorico de Basto,Município,17694
+60,Cinfães,Município,17769
+61,Felgueiras,Município,55849
+62,Lousada,Município,47578
+63,Marco de Canaveses,Município,49637
+64,Paços de Ferreira,Município,55784
+65,Penafiel,Município,69883
+66,Resende,Município,10035
+67,Douro,NUTS III,184272
+68,Alijó,Município,10495
+69,Armamar,Município,5733
+70,Carrazeda de Ansiães,Município,5470
+71,Freixo de Espada à Cinta,Município,3259
+72,Lamego,Município,24335
+73,Mesão Frio,Município,3546
+74,Moimenta da Beira,Município,9477
+75,Murça,Município,5259
+76,Penedono,Município,2788
+77,Peso da Régua,Município,14561
+78,Sabrosa,Município,5566
+79,Santa Marta de Penaguião,Município,6075
+80,São João da Pesqueira,Município,6834
+81,Sernancelhe,Município,5678
+82,Tabuaço,Município,5031
+83,Tarouca,Município,7366
+84,Torre de Moncorvo,Município,6808
+85,Vila Nova de Foz Côa,Município,6319
+86,Vila Real,Município,49676
+87,Terras de Trás-os-Montes,NUTS III,107428
+88,Alfândega da Fé,Município,4309
+89,Bragança,Município,34749
+90,Macedo de Cavaleiros,Município,14228
+91,Miranda do Douro,Município,6454
+92,Mirandela,Município,21416
+93,Mogadouro,Município,8353
+94,Vila Flor,Município,6079
+95,Vimioso,Município,4153
+96,Vinhais,Município,7690
+97,Centro,NUTS II,2246167
+98,Oeste,NUTS III,369059
+99,Alcobaça,Município,55511
+100,Alenquer,Município,45298
+101,Arruda dos Vinhos,Município,14255
+102,Bombarral,Município,13038
+103,Cadaval,Município,13670
+104,Caldas da Rainha,Município,51606
+105,Lourinhã,Município,26687
+106,Nazaré,Município,14984
+107,Óbidos,Município,12224
+108,Peniche,Município,26665
+109,Sobral de Monte Agraço,Município,10886
+110,Torres Vedras,Município,84236
+111,Região de Aveiro,NUTS III,371318
+112,Águeda,Município,46418
+113,Albergaria-a-Velha,Município,25099
+114,Anadia,Município,27782
+115,Aveiro,Município,81956
+116,Estarreja,Município,26458
+117,Ílhavo,Município,39826
+118,Murtosa,Município,10588
+119,Oliveira do Bairro,Município,23537
+120,Ovar,Município,55388
+121,Sever do Vouga,Município,11051
+122,Vagos,Município,23218
+123,Região de Coimbra,NUTS III,439677
+124,Arganil,Município,11174
+125,Cantanhede,Município,34410
+126,Coimbra,Município,141727
+127,Condeixa-a-Nova,Município,16905
+128,Figueira da Foz,Município,59370
+129,Góis,Município,3794
+130,Lousã,Município,17109
+131,Mealhada,Município,19487
+132,Mira,Município,12215
+133,Miranda do Corvo,Município,12074
+134,Montemor-o-Velho,Município,24699
+135,Mortágua,Município,9020
+136,Oliveira do Hospital,Município,19492
+137,Pampilhosa da Serra,Município,4077
+138,Penacova,Município,13097
+139,Penela,Município,5487
+140,Soure,Município,17296
+141,Tábua,Município,11307
+142,Vila Nova de Poiares,Município,6940
+143,Região de Leiria,NUTS III,289099
+144,Alvaiázere,Município,6299
+145,Ansião,Município,11730
+146,Batalha,Município,15720
+147,Castanheira de Pêra,Município,2691
+148,Figueiró dos Vinhos,Município,5287
+149,Leiria,Município,129586
+150,Marinha Grande,Município,39432
+151,Pedrógão Grande,Município,3474
+152,Pombal,Município,51470
+153,Porto de Mós,Município,23414
+154,Viseu Dão Lafões,NUTS III,254212
+155,Aguiar da Beira,Município,5332
+156,Carregal do Sal,Município,9093
+157,Castro Daire,Município,13740
+158,Mangualde,Município,18396
+159,Nelas,Município,13216
+160,Oliveira de Frades,Município,9613
+161,Penalva do Castelo,Município,7349
+162,Santa Comba Dão,Município,10763
+163,São Pedro do Sul,Município,15188
+164,Sátão,Município,11047
+165,Tondela,Município,25995
+166,Vila Nova de Paiva,Município,4692
+167,Viseu,Município,100118
+168,Vouzela,Município,9674
+169,Beira Baixa,NUTS III,81179
+170,Castelo Branco,Município,52533
+171,Idanha-a-Nova,Município,8417
+172,Oleiros,Município,4913
+173,Penamacor,Município,4792
+174,Proença-a-Nova,Município,7151
+175,Vila Velha de Ródão,Município,3374
+176,Médio Tejo,NUTS III,230468
+177,Abrantes,Município,34365
+178,Alcanena,Município,12558
+179,Constância,Município,3806
+180,Entroncamento,Município,20563
+181,Ferreira do Zêzere,Município,7853
+182,Mação,Município,6430
+183,Ourém,Município,45029
+184,Sardoal,Município,3538
+185,Sertã,Município,14856
+186,Tomar,Município,36593
+187,Torres Novas,Município,34349
+188,Vila de Rei,Município,3341
+189,Vila Nova da Barquinha,Município,7190
+190,Beiras e Serra da Estrela,NUTS III,211158
+191,Almeida,Município,5832
+192,Belmonte,Município,6193
+193,Celorico da Beira,Município,6596
+194,Covilhã,Município,46548
+195,Figueira de Castelo Rodrigo,Município,5141
+196,Fornos de Algodres,Município,4441
+197,Fundão,Município,26652
+198,Gouveia,Município,12273
+199,Guarda,Município,40218
+200,Manteigas,Município,2965
+201,Mêda,Município,4614
+202,Pinhel,Município,8086
+203,Sabugal,Município,11372
+204,Seia,Município,21798
+205,Trancoso,Município,8433
+206,Área Metropolitana de Lisboa,NUTS II,2884170
+207,Área Metropolitana de Lisboa,NUTS III,2884170
+208,Alcochete,Município,19375
+209,Almada,Município,178043
+210,Amadora,Município,172690
+211,Barreiro,Município,78762
+212,Cascais,Município,214462
+213,Lisboa,Município,547010
+214,Loures,Município,202660
+215,Mafra,Município,87560
+216,Moita,Município,66860
+217,Montijo,Município,56546
+218,Odivelas,Município,148953
+219,Oeiras,Município,171798
+220,Palmela,Município,69879
+221,Seixal,Município,167695
+222,Sesimbra,Município,53043
+223,Setúbal,Município,123706
+224,Sintra,Município,387196
+225,Vila Franca de Xira,Município,137936
+226,Alentejo,NUTS II,711225
+227,Alentejo Litoral,NUTS III,97683
+228,Alcácer do Sal,Município,11181
+229,Grândola,Município,13954
+230,Odemira,Município,30186
+231,Santiago do Cacém,Município,27987
+232,Sines,Município,14376
+233,Baixo Alentejo,NUTS III,115681
+234,Aljustrel,Município,8909
+235,Almodôvar,Município,6758
+236,Alvito,Município,2291
+237,Barrancos,Município,1517
+238,Beja,Município,33627
+239,Castro Verde,Município,6926
+240,Cuba,Município,4406
+241,Ferreira do Alentejo,Município,7789
+242,Mértola,Município,6266
+243,Moura,Município,13336
+244,Ourique,Município,4839
+245,Serpa,Município,13806
+246,Vidigueira,Município,5215
+247,Lezíria do Tejo,NUTS III,239056
+248,Almeirim,Município,22240
+249,Alpiarça,Município,7035
+250,Azambuja,Município,21760
+251,Benavente,Município,30312
+252,Cartaxo,Município,23514
+253,Chamusca,Município,8555
+254,Coruche,Município,17477
+255,Golegã,Município,5389
+256,Rio Maior,Município,21366
+257,Salvaterra de Magos,Município,22023
+258,Santarém,Município,59388
+259,Alto Alentejo,NUTS III,105354
+260,Alter do Chão,Município,3113
+261,Arronches,Município,2804
+262,Avis,Município,3825
+263,Campo Maior,Município,8073
+264,Castelo de Vide,Município,3198
+265,Crato,Município,3252
+266,Elvas,Município,20749
+267,Fronteira,Município,2948
+268,Gavião,Município,3392
+269,Marvão,Município,3059
+270,Monforte,Município,3003
+271,Nisa,Município,5906
+272,Ponte de Sor,Município,15298
+273,Portalegre,Município,22328
+274,Sousel,Município,4409
+275,Alentejo Central,NUTS III,153453
+276,Alandroal,Município,5034
+277,Arraiolos,Município,6680
+278,Borba,Município,6475
+279,Estremoz,Município,12745
+280,Évora,Município,53883
+281,Montemor-o-Novo,Município,15984
+282,Mora,Município,4196
+283,Mourão,Município,2370
+284,Portel,Município,5740
+285,Redondo,Município,6310
+286,Reguengos de Monsaraz,Município,9894
+287,Vendas Novas,Município,11324
+288,Viana do Alentejo,Município,5426
+289,Vila Viçosa,Município,7396
+290,Algarve,NUTS II,469938
+291,Algarve,NUTS III,469938
+292,Albufeira,Município,44546
+293,Alcoutim,Município,2528
+294,Aljezur,Município,6138
+295,Castro Marim,Município,6535
+296,Faro,Município,67924
+297,Lagoa,Município,23950
+298,Lagos,Município,33631
+299,Loulé,Município,72538
+300,Monchique,Município,5457
+301,Olhão,Município,44750
+302,Portimão,Município,60194
+303,São Brás de Alportel,Município,11329
+304,Silves,Município,38086
+305,Tavira,Município,27609
+306,Vila do Bispo,Município,5781
+307,Vila Real de Santo António,Município,18946
+308,Região Autónoma dos Açores,NUTS I,238205
+309,Região Autónoma dos Açores,NUTS II,238205
+310,Ilha de Santa Maria,NUTS III,5454
+311,Vila do Porto,Município,5454
+312,Ilha de São Miguel,NUTS III,134367
+313,Lagoa [R.A.A.],Município,14361
+314,Nordeste,Município,4437
+315,Ponta Delgada,Município,67683
+316,Povoação,Município,5862
+317,Ribeira Grande,Município,31656
+318,Vila Franca do Campo,Município,10369
+319,Ilha Terceira,NUTS III,53494
+320,Angra do Heroísmo,Município,33923
+321,Vila da Praia da Vitória,Município,19571
+322,Ilha Graciosa,NUTS III,4102
+323,Santa Cruz da Graciosa,Município,4102
+324,Ilha de São Jorge,NUTS III,8451
+325,Calheta [R.A.A.],Município,3500
+326,Velas,Município,4951
+327,Ilha do Pico,NUTS III,14045
+328,Lajes do Pico,Município,4387
+329,Madalena,Município,6399
+330,São Roque do Pico,Município,3259
+331,Ilha do Faial,NUTS III,14427
+332,Horta,Município,14427
+333,Ilha das Flores,NUTS III,3466
+334,Lajes das Flores,Município,1415
+335,Santa Cruz das Flores,Município,2052
+336,Ilha do Corvo,NUTS III,401
+337,Corvo,Município,401
+338,Região Autónoma da Madeira,NUTS I,252297
+339,Região Autónoma da Madeira,NUTS II,252297
+340,Ilha da Madeira,NUTS III,247111
+341,Calheta [R.A.M.],Município,10974
+342,Câmara de Lobos,Município,32330
+343,Funchal,Município,106352
+344,Machico,Município,19656
+345,Ponta do Sol,Município,8434
+346,Porto Moniz,Município,2485
+347,Ribeira Brava,Município,12788
+348,Santa Cruz,Município,42666
+349,Santana,Município,6554
+350,São Vicente,Município,4875
+351,Ilha de Porto Santo,NUTS III,5186
+352,Porto Santo,Município,5186

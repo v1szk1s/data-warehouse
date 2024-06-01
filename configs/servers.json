@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Date Warehouse",
+            "Group": "Servers",
+            "Port": 5432,
+            "Username": "hulu",
+            "Host": "db",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres",
+            "PassFile": "/pgpass"
+        }
+    }
+}
