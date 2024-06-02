@@ -102,31 +102,126 @@ The evolution of data warehousing has paralleled advancements in technology, lea
 
 \section{Docker}
 
-Docker is an open-source platform designed to automate the deployment, scaling, and management of applications using containerization. Containers are lightweight, portable units that package an application and its dependencies together, ensuring consistent behavior across different environments. Docker simplifies the process of creating, deploying, and running applications by providing a standardized unit of software. This allows developers to build, test, and deploy applications quickly and efficiently, irrespective of the underlying infrastructure. Docker's core components include the Docker Engine, which runs containers, and Docker Hub, a repository for sharing container images. It is widely used in modern DevOps practices for its ability to streamline development workflows, enhance scalability, and improve resource utilization.
+Docker is an open-source platform designed to automate the deployment, scaling, and management of applications using containerization. Containers are lightweight, portable units that package an application and its dependencies together, ensuring consistent behavior across different environments.
+
+That is why I chose to create my project in a Docker environment. I created a docker-compose file, for pgAdmin, and postgresql. For initializing the database, and configuring pgAdmin, I mount the appropriate files in the containers, as both of these offer configurating them via config files.
+The frontentd application was created with sveltekit. I tryed to use Radzen, as suggested but sadly it crashed on my computer. For the frontend application I created a Dockerfile, so the docker compose can manage this part of the project too.
 
 \section{ERDPlus}
 
-ERDPlus is an online tool for creating entity-relationship diagrams (ERDs), relational schemas, star schemas, and other database design diagrams. It is user-friendly and provides a drag-and-drop interface, making it easy for users to visually design and document their database structures. ERDPlus supports the creation of detailed diagrams that represent the data models and relationships within a database, facilitating better understanding and communication among developers, analysts, and stakeholders. This tool is particularly useful for designing databases from scratch, planning database modifications, and ensuring that the database design aligns with business requirements.
+ERDPlus is an online tool for creating entity-relationship diagrams (ERDs), relational schemas, star schemas, and other database design diagrams. It is user-friendly and provides a drag-and-drop interface, making it easy for users to visually design and document their database structures. ERDPlus supports the creation of detailed diagrams that represent the data models and relationships within a database, facilitating better understanding and communication among developers, analysts, and stakeholders. This tool is particularly useful for designing databases from scratch, but when I needed to change some things in the schema, doing it through ERDPlus would be more work. It was good to make the base schema, but for only that.
 
 \section{PostgreSQL}
 
 PostgreSQL, often referred to as Postgres, is a powerful, open-source relational database management system (RDBMS). Known for its robustness, extensibility, and standards compliance, PostgreSQL supports a wide range of data types and advanced features such as transactions, foreign keys, subqueries, triggers, and views. It also includes support for JSON and XML, allowing it to handle both structured and semi-structured data. PostgreSQL is highly customizable and extensible, offering numerous extensions for full-text search, geospatial data (PostGIS), and more. Its strong community support and comprehensive documentation make it a popular choice for developers and organizations needing a reliable and versatile database solution.
 
+
+
 \section{pgAdmin}
 
-pgAdmin is an open-source management and administration tool for PostgreSQL. It provides a graphical interface that simplifies the tasks of database administration, including creating databases, running queries, managing users and permissions, and monitoring database performance. pgAdmin supports multiple PostgreSQL versions and offers features like SQL query editor, debugging tools, and data visualization capabilities. It is available as a desktop application and a web-based tool, making it accessible from various platforms and devices. pgAdmin is essential for database administrators and developers who require a user-friendly interface to interact with PostgreSQL databases.
+pgAdmin is an open-source management and administration tool for PostgreSQL. It provides a graphical interface that simplifies the tasks of database administration, including creating databases, running queries, managing users and permissions, and monitoring database performance. pgAdmin supports multiple PostgreSQL versions and offers features like SQL query editor, debugging tools, and data visualization capabilities. It is available as a desktop application and a web-based tool, making it accessible from various platforms and devices.
+
+I only used the query tool in pgAdmin, but it was a nice experience.
 
 \section{Radzen}
 
-Radzen is a low-code, rapid application development platform that enables users to build web applications with minimal coding effort. It provides a visual interface for designing user interfaces, integrating with various data sources, and automating workflows. Radzen supports the creation of Angular and Blazor applications and can connect to a variety of databases, including SQL Server, Oracle, MySQL, and PostgreSQL. It offers drag-and-drop components, code generation, and customization options, allowing developers to quickly prototype and deploy applications. Radzen is particularly useful for business applications where time-to-market and ease of maintenance are critical.
+Radzen is a low-code, rapid application development platform that enables users to build web applications with minimal coding effort.
 
-\section{DbSchema}
+Sadly I couldn't use it, because it crashed when I tried to connect the database. I didn't like, that I couldn't specify the port number of the database.
 
-DbSchema is a comprehensive database design and management tool that supports various relational and NoSQL databases, including MySQL, PostgreSQL, MongoDB, SQL Server, and more. It provides a visual interface for designing schemas, creating and executing queries, and managing database objects. DbSchema includes features such as interactive diagrams, data exploration, synchronization, and documentation generation. It also offers capabilities for reverse-engineering existing databases and visual query builders. DbSchema is valuable for developers, database administrators, and data architects who need a versatile and powerful tool to manage and document their database environments effectively.
+\section{SvelteKit}
 
-%s/\(.*,\)".*\d \(.*\)"/\1"\2"
+SvelteKit is a modern framework for building web applications that leverages the power of Svelte, a popular front-end JavaScript framework. Unlike traditional frameworks that use a virtual DOM, Svelte compiles components into highly efficient imperative code that directly manipulates the DOM. SvelteKit extends this approach by providing a comprehensive set of tools for building full-stack applications, including file-based routing, server-side rendering (SSR), and static site generation (SSG). It aims to offer a seamless developer experience with fast performance, simplified state management, and minimal boilerplate code, making it an attractive choice for developers looking to create dynamic, high-performance web applications.
+
+It's the frontend framework that I am most familiar with, thats why I choose to use it.
+
+\subsubsection{Chart.js}
+Chart.js is a popular open-source JavaScript library for creating dynamic, responsive, and customizable charts and graphs. Designed to be simple and flexible, it enables developers to easily integrate a variety of chart types, including line, bar, radar, pie, polar area, doughnut, and bubble charts, into web applications. With its intuitive API and extensive documentation, Chart.js allows for the straightforward visualization of data, making it a valuable tool for data analysis and presentation. It also supports animations and interactions, enhancing the user experience and providing clear, visually appealing representations of complex data sets. 
+
+When I shearched for js diagram libraries this was the most appealing to me, that's why I choose to use this.
+
+
+\chapter{Implementation} % (fold)
+
+\section{ETL}
+
+\begin{figure}[!ht]  
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{figures/erd_schema.png}
+    \end{center}
+    \caption{ERDPlus Schema}\label{fig:schema}
+\end{figure}
+
+ETL stands for Extract, Transform and Load. The provided csv files were far from usable format. Frist I needed to filter the neccessary rows, and I also had to obtain the maximum length of some of the attributes.
+The ids of the books differed in the provided csvs, so I changed the uniq ids of the books to integers in the range, that the requesests.csv file had.
+
+I sketched the star shcema of the Data Warehouse using ERDPlus. A payed attention to use the appropriate types, as seen in Figure~\ref{fig:schema} 
+
+After creating the schema using drag and drop features, which I find not so pleasent to use, I exported the sql file that the ERDPlus generated for me from the scema as seen on Figure~\ref{fig:erd_sql}.
+
+I would also mention, that after the initial generated sql schema I had to change the init file numerous times.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{figures/erd_sql.png}
+    \end{center}
+    \caption{ERDPlus Generated SQL}\label{fig:erd_sql}
+\end{figure}
+
+
+Now I was ready to import the data from the csv files. The initializing sql file can be seen at Appendix~\ref{appendix:init_sql}.
+I mainly used pgAdmin to interact with the database. pgAdmin has a nice user interface where we can see the results of a query \ref{fig:pg_admin_query}.
+
+I, then created all the queries and the views to answer the questions.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{figures/pg_admin_query.png}
+    \end{center}
+    \caption{pgAdmin Querying Interface}\label{fig:pg_admin_query}
+\end{figure}
+
+
+\section{Fronted Application}
+
+As part of the final project for the data warehouses class, we were tasked with developing a frontend application to visualize the results of various queries and analyses in chart form. Originally, the requirement was to use the Radzen tool for this purpose. However, due to the fatal issue of it always crashing, it was necessary to find an alternative solution. I chose to use SvelteKit, a modern framework for building web applications, and various charting libraries to accomplish this.
+After initialized the SvelteKit project, I configured the development environment and installed necessary dependencies, including charting libraries like Chart.js and ApexCharts.
+Then I connected the frontend application to the data warehouse using API endpoints. Created functions to fetch data from the backend and process it for visualization.
+I developed interactive charts to visualize the answers to the provided questions, ensured that the charts were responsive and user-friendly.
+
+Despite the initial setbacks with Radzen, the final application developed using SvelteKit successfully displayed the required data visualizations. The charts provided clear insights into the various aspects of the library data, such as book usage trends, acquisition costs, and popular books per course.
+
+\begin{figure}[!ht]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{figures/frontend.png}
+    \end{center}
+    \caption{Frontend Index Page}\label{fig:frontend}
+\end{figure}
+
+
+\chapter{Conclusion} % (fold)
+\label{chap:Conclusion}
+
+In conclusion, this final project for the data warehouses class has been an enlightening experience in navigating various obstacles, both expected and unexpected. As an Erasmus student, the lack of an English translation for the task presented an initial challenge that I had to overcome with the aid of Google Translate. This added an unnecessary layer of complexity to an already demanding project.
+
+The Radzen tool we were required to use was, to put it mildly, less than ideal. Its functionality was limited, and it frequently failed to work as intended. This significantly hampered the development process and increased the time and effort required to complete even basic tasks.
+
+The data provided for this project was another source of frustration. The request.csv and books.csv files contained book IDs that were disjoint, making it impossible to match requests to actual books. This fundamental flaw suggests that the data was likely auto-generated without proper validation or consideration for practical usability. Consequently, any conclusions drawn from this data are, at best, questionable and, at worst, completely meaningless.
+
+Despite these challenges, I endeavored to create a data warehouse that could potentially serve as a foundation for analyzing library data over the past ten years. However, the inherent flaws in the data and tools provided mean that the insights and conclusions derived from this project should be taken with a grain of salt.
+
+Overall, this project has highlighted the importance of reliable tools, accurate data, and clear communication in the development of a functional data warehouse. It has been an exercise in patience and problem-solving under less-than-ideal circumstances, and while the final product may not meet the intended objectives, it stands as a testament to the resilience and resourcefulness required to navigate such a flawed assignment.
+
+
+% chapter Conclusion (end)
+
+
+
+\appendix
+\input{chapters/appendix}
 
 % \printbibliography
 % \addcontentsline{toc}{chapter}{References}
+
 
 \end{document}
